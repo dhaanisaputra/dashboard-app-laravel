@@ -55,7 +55,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="{{route('admin.home')}}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -124,7 +124,7 @@
                 <div class="badge bg-danger rounded-pill ms-auto">5</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                   <a
                     href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/dashboards-crm.html"
                     target="_blank"
@@ -132,13 +132,13 @@
                     <div data-i18n="CRM">CRM</div>
                     <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
                   </a>
-                </li>
+                </li> --}}
                 <li class="menu-item active">
                   <a href="index.html" class="menu-link">
                     <div data-i18n="Analytics">Analytics</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                   <a
                     href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html"
                     target="_blank"
@@ -164,11 +164,11 @@
                     <div data-i18n="Academy">Academy</div>
                     <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
                   </a>
-                </li>
+                </li> --}}
               </ul>
             </li>
 
-            <!-- Layouts -->
+            {{-- <!-- Layouts -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -253,13 +253,14 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
 
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Apps &amp; Pages</span>
+              {{-- <span class="menu-header-text">Apps &amp; Pages</span> --}}
+              <span class="menu-header-text">User Managements</span>
             </li>
             <!-- Apps -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a
                 href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-email.html"
                 target="_blank"
@@ -298,55 +299,79 @@
                 <div data-i18n="Kanban">Kanban</div>
                 <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
               </a>
-            </li>
+            </li> --}}
             <!-- Pages -->
+            <li class="menu-item">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                  {{-- <i class="menu-icon tf-icons bx bx-dock-top"></i> --}}
+                  <i class="bx bx-user me-2"></i>
+                  <div data-i18n="Account Settings">Admins</div>
+                </a>
+                <ul class="menu-sub">
+                  <li class="menu-item">
+                    <a href="pages-account-settings-account.html" class="menu-link">
+                      <div data-i18n="Account">Admin List</div>
+                    </a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="pages-account-settings-notifications.html" class="menu-link">
+                      <div data-i18n="Notifications">Add New Admin</div>
+                    </a>
+                  </li>
+                  {{-- <li class="menu-item">
+                    <a href="pages-account-settings-connections.html" class="menu-link">
+                      <div data-i18n="Connections">Connections</div>
+                    </a>
+                  </li> --}}
+                </ul>
+            </li>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div data-i18n="Account Settings">Account Settings</div>
+                <div data-i18n="Account Settings">Users</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="pages-account-settings-account.html" class="menu-link">
-                    <div data-i18n="Account">Account</div>
+                    <div data-i18n="Account">User List</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="pages-account-settings-notifications.html" class="menu-link">
-                    <div data-i18n="Notifications">Notifications</div>
+                    <div data-i18n="Notifications">Add New User</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                   <a href="pages-account-settings-connections.html" class="menu-link">
                     <div data-i18n="Connections">Connections</div>
                   </a>
-                </li>
+                </li> --}}
               </ul>
             </li>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div data-i18n="Authentications">Authentications</div>
+                <div data-i18n="Authentications">Role &amp; Permissions</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Login</div>
+                    <div data-i18n="Basic">All Roles</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Register</div>
+                    <div data-i18n="Basic">Create Role</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                   <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Forgot Password</div>
                   </a>
-                </li>
+                </li> --}}
               </ul>
             </li>
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                 <div data-i18n="Misc">Misc</div>
@@ -363,18 +388,37 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
             <!-- Components -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Contents</span></li>
             <!-- Cards -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="cards-basic.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">Cards</div>
               </a>
+            </li> --}}
+            <!-- Content Post -->
+            <li class="menu-item">
+              <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="User interface">Collection</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="ui-accordion.html" class="menu-link">
+                    <div data-i18n="Accordion">Pages</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="ui-alerts.html" class="menu-link">
+                    <div data-i18n="Alerts">Post Article</div>
+                  </a>
+                </li>
+              </ul>
             </li>
             <!-- User interface -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="User interface">User interface</div>
@@ -476,10 +520,10 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
 
             <!-- Extended components -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-copy"></i>
                 <div data-i18n="Extended UI">Extended UI</div>
@@ -496,19 +540,19 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
 
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="icons-boxicons.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-crown"></i>
                 <div data-i18n="Boxicons">Boxicons</div>
               </a>
-            </li>
+            </li> --}}
 
             <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
+            {{-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li> --}}
             <!-- Forms -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Elements">Form Elements</div>
@@ -543,9 +587,9 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> --}}
             <!-- Form Validation -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a
                 href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/form-validation.html"
                 target="_blank"
@@ -554,16 +598,16 @@
                 <div data-i18n="Form Validation">Form Validation</div>
                 <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
               </a>
-            </li>
+            </li> --}}
             <!-- Tables -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="tables-basic.html" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
                 <div data-i18n="Tables">Tables</div>
               </a>
-            </li>
+            </li> --}}
             <!-- Data Tables -->
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a
                 href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/tables-datatables-basic.html"
                 target="_blank"
@@ -572,7 +616,7 @@
                 <div data-i18n="Datatables">Datatables</div>
                 <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto">Pro</div>
               </a>
-            </li>
+            </li> --}}
             <!-- Misc -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
             <li class="menu-item">
@@ -627,7 +671,8 @@
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
                 <li class="nav-item lh-1 me-3">
-                  <a
+                    <a>Welcome, {{Auth::user()->name}}</a>
+                  {{-- <a
                     class="github-button"
                     href="https://github.com/themeselection/sneat-html-admin-template-free"
                     data-icon="octicon-star"
@@ -635,7 +680,7 @@
                     data-show-count="true"
                     aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
                     >Star</a
-                  >
+                  > --}}
                 </li>
 
                 <!-- User -->
@@ -655,8 +700,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-medium d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-medium d-block">{{Auth::user()->name}}</span>
+                            <small class="text-muted">{{Auth::user()->userTypes}}</small>
                           </div>
                         </div>
                       </a>
@@ -677,13 +722,13 @@
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      {{-- <a class="dropdown-item" href="#">
                         <span class="d-flex align-items-center align-middle">
                           <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
                           <span class="flex-grow-1 align-middle ms-1">Billing</span>
                           <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
                         </span>
-                      </a>
+                      </a> --}}
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
@@ -714,7 +759,7 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+                          <h5 class="card-title text-primary">Congratulations {{Auth::user()->name}}! 🎉</h5>
                           <p class="mb-4">
                             You have done <span class="fw-medium">72%</span> more sales today. Check your new badge in
                             your profile.
@@ -1275,15 +1320,6 @@
       <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/item/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
