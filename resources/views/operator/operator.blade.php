@@ -97,6 +97,7 @@ https://templatemo.com/tm-590-topic-listing
                         </ul>
 
                         <div class="d-none d-lg-block">
+                            <a>Welcome, {{Auth::user()->name}}</a>
                             <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
                         </div>
                     </div>

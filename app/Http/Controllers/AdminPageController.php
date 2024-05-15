@@ -10,4 +10,9 @@ class AdminPageController extends Controller
     {
         return view('admin.admin');
     }
+
+    public function adminList()
+    {
+        return view('admin.all-list-admin');
+    }
 }

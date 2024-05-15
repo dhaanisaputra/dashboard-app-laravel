@@ -121,7 +121,7 @@
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
-                <div class="badge bg-danger rounded-pill ms-auto">5</div>
+                {{-- <div class="badge bg-danger rounded-pill ms-auto">5</div> --}}
               </a>
               <ul class="menu-sub">
                 {{-- <li class="menu-item">
@@ -134,7 +134,7 @@
                   </a>
                 </li> --}}
                 <li class="menu-item active">
-                  <a href="index.html" class="menu-link">
+                  <a href="{{route('admin.home')}}" class="menu-link">
                     <div data-i18n="Analytics">Analytics</div>
                   </a>
                 </li>
@@ -304,12 +304,13 @@
             <li class="menu-item">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                   {{-- <i class="menu-icon tf-icons bx bx-dock-top"></i> --}}
-                  <i class="bx bx-user me-2"></i>
+                  <i class="menu-icon tf-icons bx bx-user me-2"></i>
                   <div data-i18n="Account Settings">Admins</div>
                 </a>
                 <ul class="menu-sub">
                   <li class="menu-item">
-                    <a href="pages-account-settings-account.html" class="menu-link">
+                    {{-- <a href="pages-account-settings-account.html" class="menu-link"> --}}
+                      <a href="{{route('admin.adminlist')}}" class="menu-link">
                       <div data-i18n="Account">Admin List</div>
                     </a>
                   </li>
@@ -355,13 +356,13 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">All Roles</div>
+                  <a href="{{ url('roles')}}" class="menu-link">
+                    <div data-i18n="Basic">Roles</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Create Role</div>
+                  <a href="{{ url('permission')}}" class="menu-link">
+                    <div data-i18n="Basic">Permission</div>
                   </a>
                 </li>
                 {{-- <li class="menu-item">
