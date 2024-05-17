@@ -344,6 +344,9 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <div>
+                                            {{ $permissions->links('pagination::bootstrap-5')}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

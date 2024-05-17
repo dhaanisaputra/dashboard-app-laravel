@@ -324,10 +324,10 @@
                                                     <input type="text" name="password" class="form-control"></input>
                                                     @error('password') <span class="text-danger">{{ $message }}</span>  @enderror
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="">Roles</label>
+                                                <div class="mb-3 col-md-6 col-sm-6">
+                                                    <label for="">Assign Roles</label>
                                                     <select name="roles[]" class="form-control" multiple>
-                                                        <option value="">Select Role</option>
+                                                        <option value="" disabled>Select Role</option>
                                                         @foreach ($roles as $role)
                                                             <option
                                                                 value="{{ $role }}"

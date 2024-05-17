@@ -342,6 +342,9 @@ data-template="vertical-menu-template-free">
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <div>
+                                            {{ $roles->links('pagination::bootstrap-5')}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -349,6 +349,9 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                            <div>
+                                                {{ $users->links('pagination::bootstrap-5')}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
