@@ -16,7 +16,12 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->userTypes == 'admin') {
+        // if (auth()->user()->userTypes == 'admin') {
+        //     return $next($request);
+        // }
+        /** @var App\Models\User */
+        $user = Auth::user();
+        if ($user->hasRole(['super-admin', 'admin'])) {
             return $next($request);
         }
         abort('403', 'Akses khusus Admin');

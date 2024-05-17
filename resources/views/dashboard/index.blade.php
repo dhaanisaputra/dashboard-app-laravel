@@ -333,15 +333,15 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
+                  <a href="{{ url('users')}}" class="menu-link">
                     <div data-i18n="Account">User List</div>
                   </a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                   <a href="pages-account-settings-notifications.html" class="menu-link">
                     <div data-i18n="Notifications">Add New User</div>
                   </a>
-                </li>
+                </li> --}}
                 {{-- <li class="menu-item">
                   <a href="pages-account-settings-connections.html" class="menu-link">
                     <div data-i18n="Connections">Connections</div>

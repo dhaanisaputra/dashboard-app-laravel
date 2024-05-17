@@ -2,11 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
+    public static function middleware(): array
+    {
+        return [
+            // examples with aliases, pipe-separated names, guards, etc:
+            'role:admin',
+            new Middleware('permission:view permission', only: ['index']),
+            new Middleware('permission:create permission', only: ['create', 'store']),
+            new Middleware('permission:update permission', only: ['update', 'edit']),
+            new Middleware('permission:delete permission', only: ['destroy']),
+            // new Middleware(\Spatie\Permission\Middleware\RoleMiddleware::using('manager'), except:['show']),
+            // new Middleware(\Spatie\Permission\Middleware\PermissionMiddleware::using('delete records,api'), only:['destroy']),
+        ];
+    }
+
     public function index()
     {
         $permissions = Permission::get();
