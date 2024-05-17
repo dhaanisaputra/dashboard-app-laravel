@@ -328,7 +328,7 @@ data-template="vertical-menu-template-free">
                                                         <td>{{ $role->name }}</td>
                                                         <td>
                                                             @can('give permission')
-                                                                <a href="{{ url('roles/'.$role->id.'/give-permission')}}" class="btn btn-success">Add / Edit Role Permission</a>
+                                                                <a href="{{ url('roles/'.$role->id.'/give-permission')}}" class="btn btn-info">Add / Edit Role Permission</a>
                                                             @endcan
                                                             @can('edit role')
                                                                 <a href="{{ url('roles/'.$role->id.'/edit')}}" class="btn btn-success">Edit</a>
