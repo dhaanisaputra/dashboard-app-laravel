@@ -334,12 +334,12 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label>Status</label><br/>
-                                                    <input type="checkbox" name="status"/>
-                                                    {{-- <select name="status" class="form-select form-select" aria-label=".form-select-sm">
+                                                    {{-- <input type="checkbox" name="status"/> --}}
+                                                    <select name="status" class="form-select form-select" aria-label=".form-select-sm">
                                                         <option selected disabled>Select Status</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
-                                                    </select> --}}
+                                                        <option value="0">Active</option>
+                                                        <option value="1">Inactive</option>
+                                                    </select>
                                                 </div>
 
                                                 <div class="col-md-12 mt-5">

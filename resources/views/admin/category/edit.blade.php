@@ -3,19 +3,19 @@
     class="light-style layout-menu-fixed layout-compact"
     dir="ltr"
     data-theme="theme-default"
-    data-assets-path="../assets/"
+    data-assets-path="../../../assets/"
     data-template="vertical-menu-template-free">
     <head>
         <meta charset="utf-8">
         <meta name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <title>Category List</title>
+        <title>Edit Category</title>
 
         <meta name="description" content="" />
         {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../../../assets/img/favicon/favicon.ico" />
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,24 +23,24 @@
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet" />
 
-        <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+        <link rel="stylesheet" href="../../../assets/vendor/fonts/boxicons.css" />
 
         <!-- Core CSS -->
-        <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-        <link rel="stylesheet" href="../assets/css/demo.css" />
+        <link rel="stylesheet" href="../../../assets/vendor/css/core.css" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="../../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="../../../assets/css/demo.css" />
 
         <!-- Vendors CSS -->
-        <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-        <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+        <link rel="stylesheet" href="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+        <link rel="stylesheet" href="../../../assets/vendor/libs/apex-charts/apex-charts.css" />
 
         <!-- Page CSS -->
 
         <!-- Helpers -->
-        <script src="../assets/vendor/js/helpers.js"></script>
+        <script src="../../../assets/vendor/js/helpers.js"></script>
         <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
         <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-        <script src="../assets/js/config.js"></script>
+        <script src="../../../assets/js/config.js"></script>
     </head>
     <body>
         <div class="layout-wrapper layout-content-navbar">
@@ -248,7 +248,7 @@
                                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                    <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                    <img src="../../../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -257,7 +257,7 @@
                                         <div class="d-flex">
                                         <div class="flex-shrink-0 me-3">
                                             <div class="avatar avatar-online">
-                                            <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                            <img src="../../../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
@@ -300,51 +300,98 @@
                             </ul>
                         </div>
                     </nav>
-
-                    <div>
-                        <livewire:admin.category.index />
-                    </div>
-                    {{-- <div class="content-wrapper">
+                    <div class="content-wrapper">
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <div class="row">
-                                @if (session('message'))
-                                    <div class="alert alert-success">{{session('message')}}</div>
-                                @endif
-
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Category
-                                            <a href="{{ route('create.category')}}" class="btn btn-primary btn-sm float-end">Add Category</a>
+                                        <h3>Edit Category
+                                            <a href="{{ route('post.category')}}" class="btn btn-primary btn-sm float-end">Back</a>
                                         </h3>
                                     </div>
                                     <div class="card-body">
+                                        <form action="{{ route('post.category')}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
 
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Name</label>
+                                                    <input type="text" name="name" value="{{ $category->name }}" class="form-control"/>
+                                                    @error('name') <small class="text-danger">{{$message}}</small> @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Slug</label>
+                                                    <input type="text" name="slug" value="{{ $category->slug }}" class="form-control"/>
+                                                    @error('slug') <small class="text-danger">{{$message}}</small> @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Description</label>
+                                                    <textarea name="description" class="form-control" rows="3">{{ $category->description }}</textarea>
+                                                    @error('description') <small class="text-danger">{{$message}}</small> @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Image</label>
+                                                    <input type="file" name="image" class="form-control"/>
+                                                    <img src="{{ asset('/uploads/category'.$category->image) }}" width="80px" height="80px"/>
+                                                    @error('image') <small class="text-danger">{{$message}}</small> @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Status</label><br/>
+                                                    {{-- <input type="checkbox" name="status"/> --}}
+                                                    <select name="status" class="form-select form-select" aria-label=".form-select-sm">
+                                                        <option selected disabled>Select Status</option>
+                                                        <option value="0" {{ $category->status == '0' ? 'selected' : '' }}>Active</option>
+                                                        <option value="1" {{ $category->status == '1' ? 'selected' : '' }}>Inactive</option>
+                                                    </select>
+                                                    @error('status') <small class="text-danger">{{$message}}</small> @enderror
+                                                </div>
+
+                                                <div class="col-md-12 mt-5">
+                                                    <h3>SEO Tags</h3>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label>Meta Title</label>
+                                                    <input type="text" value="{{ $category->meta_title }}" name="meta_title" class="form-control" />
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label>Meta Keyword</label>
+                                                    <textarea name="meta_keyword" class="form-control" rows="3">{{ $category->meta_keyword }}</textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label>Meta Description</label>
+                                                    <textarea name="meta_description" class="form-control" rows="3">{{ $category->meta_description }}</textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <button type="submit" class="btn btn-primary float-end">Update</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
 
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
-        <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="../assets/vendor/libs/popper/popper.js"></script>
-        <script src="../assets/vendor/js/bootstrap.js"></script>
-        <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="../assets/vendor/js/menu.js"></script>
+        <script src="../../../assets/vendor/libs/jquery/jquery.js"></script>
+        <script src="../../../assets/vendor/libs/popper/popper.js"></script>
+        <script src="../../../assets/vendor/js/bootstrap.js"></script>
+        <script src="../../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="../../../assets/vendor/js/menu.js"></script>
 
         <!-- endbuild -->
 
         <!-- Vendors JS -->
-        <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+        <script src="../../../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
         <!-- Main JS -->
-        <script src="../assets/js/main.js"></script>
+        <script src="../../../assets/js/main.js"></script>
 
         <!-- Page JS -->
-        <script src="../assets/js/dashboards-analytics.js"></script>
+        <script src="../../../assets/js/dashboards-analytics.js"></script>
 
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>

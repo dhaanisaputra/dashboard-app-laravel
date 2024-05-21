@@ -43,10 +43,18 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('users', UserController::class);
     Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
 
+    // group route category controller
+    Route::controller(CategoryController::class)->group(function () {
+        Route::get('/admin/category', 'index')->name('get.category');
+        Route::get('/admin/category/create', 'create')->name('create.category');
+        Route::post('/admin/category', 'store')->name('post.category');
+        Route::get('/admin/category/{category}/edit', 'edit')->name('put.category');
+    });
     // category route
-    Route::get('/admin/category', [CategoryController::class, 'index'])->name('get.category');
-    Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('create.category');
-    Route::post('/admin/category', [CategoryController::class, 'store'])->name('post.category');
+    // Route::get('/admin/category', [CategoryController::class, 'index'])->name('get.category');
+    // Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('create.category');
+    // Route::post('/admin/category', [CategoryController::class, 'store'])->name('post.category');
+
 });
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
