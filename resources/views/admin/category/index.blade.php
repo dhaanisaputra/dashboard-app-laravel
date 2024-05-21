@@ -303,6 +303,10 @@
                     <div class="content-wrapper">
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <div class="row">
+                                @if (session('message'))
+                                    <div class="alert alert-success">{{session('message')}}</div>
+                                @endif
+
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>Category
