@@ -1,21 +1,21 @@
-{{-- <x-app-web-layout> --}}
-    <!doctype html>
-    <html lang="en"
+<!doctype html>
+<html lang="en"
     class="light-style layout-menu-fixed layout-compact"
     dir="ltr"
     data-theme="theme-default"
-    data-assets-path="../assets/"
+    data-assets-path="../../assets/"
     data-template="vertical-menu-template-free">
     <head>
         <meta charset="utf-8">
         <meta name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <title>Create Role</title>
+        <title>Create Category</title>
+
         <meta name="description" content="" />
         {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
 
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,26 +23,26 @@
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet" />
 
-        <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+        <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
 
         <!-- Core CSS -->
-        <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-        <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-        <link rel="stylesheet" href="../assets/css/demo.css" />
+        <link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="../../assets/css/demo.css" />
 
         <!-- Vendors CSS -->
-        <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-        <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+        <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+        <link rel="stylesheet" href="../../assets/vendor/libs/apex-charts/apex-charts.css" />
 
         <!-- Page CSS -->
 
         <!-- Helpers -->
-        <script src="../assets/vendor/js/helpers.js"></script>
+        <script src="../../assets/vendor/js/helpers.js"></script>
         <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
         <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-        <script src="../assets/js/config.js"></script>
+        <script src="../../assets/js/config.js"></script>
     </head>
-      <body>
+    <body>
         <div class="layout-wrapper layout-content-navbar">
             <div class="layout-container">
                 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
@@ -113,28 +113,31 @@
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                           <i class="menu-icon tf-icons bx bx-home-circle"></i>
                           <div data-i18n="Dashboards">Dashboards</div>
+                          {{-- <div class="badge bg-danger rounded-pill ms-auto">5</div> --}}
                         </a>
                         <ul class="menu-sub">
-                          <li class="menu-item active">
+                            <li class="menu-item active">
                             <a href="{{route('admin.home')}}" class="menu-link">
-                              <div data-i18n="Analytics">Analytics</div>
+                                <div data-i18n="Analytics">Analytics</div>
                             </a>
-                          </li>
+                            </li>
                         </ul>
                       </li>
 
                       <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">User Managements</span>
                       </li>
-                      <!-- Apps -->
+
                       <!-- Pages -->
                       <li class="menu-item">
                           <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            {{-- <i class="menu-icon tf-icons bx bx-dock-top"></i> --}}
                             <i class="menu-icon tf-icons bx bx-user me-2"></i>
                             <div data-i18n="Account Settings">Admins</div>
                           </a>
                           <ul class="menu-sub">
                             <li class="menu-item">
+                              {{-- <a href="pages-account-settings-account.html" class="menu-link"> --}}
                                 <a href="{{route('admin.adminlist')}}" class="menu-link">
                                 <div data-i18n="Account">Admin List</div>
                               </a>
@@ -177,9 +180,10 @@
                           </li>
                         </ul>
                       </li>
+
                       <!-- Components -->
                       <li class="menu-header small text-uppercase"><span class="menu-header-text">Contents</span></li>
-                      <!-- Cards -->
+
                       <!-- Content Post -->
                       <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -199,6 +203,7 @@
                           </li>
                         </ul>
                       </li>
+
                       <!-- Misc -->
                       <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
                       <li class="menu-item">
@@ -221,7 +226,6 @@
                       </li>
                     </ul>
                 </aside>
-
                 <div class="layout-page">
                     <nav
                         class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
@@ -236,89 +240,126 @@
                             <ul class="navbar-nav flex-row align-items-center ms-auto">
                                 <!-- Place this tag where you want the button to render. -->
                                 <li class="nav-item lh-1 me-3">
-                                    <a>Welcome, {{Auth::user()->name}}</a>
+                                    {{-- <a>Welcome, {{Auth::user()->name}}</a> --}}
+                                    <a>Welcome</a>
                                 </li>
 
                                 <!-- User -->
                                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                                    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                                        <div class="avatar avatar-online">
-                                        <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                    <img src="../../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <div class="avatar avatar-online">
+                                            <img src="../../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            {{-- <span class="fw-medium d-block">{{Auth::user()->name}}</span>
+                                            <small class="text-muted">{{Auth::user()->userTypes}}</small> --}}
+                                        </div>
                                         </div>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="d-flex">
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar avatar-online">
-                                                    <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                                                    </div>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <span class="fw-medium d-block">{{Auth::user()->name}}</span>
-                                                    <small class="text-muted">{{Auth::user()->userTypes}}</small>
-                                                </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div class="dropdown-divider"></div>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="bx bx-user me-2"></i>
-                                                <span class="align-middle">My Profile</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="bx bx-cog me-2"></i>
-                                                <span class="align-middle">Settings</span>
-                                            </a>
-                                        </li>
-                                        {{-- <li>
+                                    </li>
+                                    <li>
+                                    <div class="dropdown-divider"></div>
+                                    </li>
+                                    <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle">My Profile</span>
+                                    </a>
+                                    </li>
+                                    <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="bx bx-cog me-2"></i>
+                                        <span class="align-middle">Settings</span>
+                                    </a>
+                                    </li>
+                                    {{-- <li>
 
-                                        </li> --}}
-                                        <li>
-                                            <div class="dropdown-divider"></div>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href="{{route('logout')}}">
-                                                <i class="bx bx-power-off me-2"></i>
-                                                <span class="align-middle">Log Out</span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    </li> --}}
+                                    <li>
+                                    <div class="dropdown-divider"></div>
+                                    </li>
+                                    <li>
+                                    <a class="dropdown-item" href="{{route('logout')}}">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Log Out</span>
+                                    </a>
+                                    </li>
+                                </ul>
                                 </li>
                                 <!--/ User -->
                             </ul>
                         </div>
                     </nav>
-
                     <div class="content-wrapper">
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>Create New Roles
-                                                <a href="{{ url('roles')}}" class="btn btn-primary float-end">Back</a>
-                                            </h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <form action="{{ url('roles')}}" method="POST">
-                                                @csrf
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>New Category
+                                            <a href="{{ route('post.category')}}" class="btn btn-primary btn-sm float-end">Back</a>
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="{{ route('post.category')}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
 
-                                                <div class="mb-3">
-                                                    <label for="">Role Name</label>
-                                                    <input type="text" name="name" class="form-control"></input>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Name</label>
+                                                    <input type="text" name="name" class="form-control"/>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Slug</label>
+                                                    <input type="text" name="slug" class="form-control"/>
                                                 </div>
-                                            </form>
-                                        </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Description</label>
+                                                    <textarea name="description" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Image</label>
+                                                    <input type="file" name="image" class="form-control"/>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label>Status</label><br/>
+                                                    <input type="checkbox" name="status"/>
+                                                    {{-- <select name="status" class="form-select form-select" aria-label=".form-select-sm">
+                                                        <option selected disabled>Select Status</option>
+                                                        <option value="1">Active</option>
+                                                        <option value="0">Inactive</option>
+                                                    </select> --}}
+                                                </div>
+
+                                                <div class="col-md-12 mt-5">
+                                                    <h3>SEO Tags</h3>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label>Meta Title</label>
+                                                    <input type="text" name="meta_title" class="form-control" />
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label>Meta Keyword</label>
+                                                    <textarea name="meta_keyword" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label>Meta Description</label>
+                                                    <textarea name="meta_description" class="form-control" rows="3"></textarea>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <button type="submit" class="btn btn-primary float-end">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -327,27 +368,27 @@
                 </div>
             </div>
         </div>
-        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
 
-        <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-        <script src="../assets/vendor/libs/popper/popper.js"></script>
-        <script src="../assets/vendor/js/bootstrap.js"></script>
-        <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="../assets/vendor/js/menu.js"></script>
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
+        <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+        <script src="../../assets/vendor/libs/popper/popper.js"></script>
+        <script src="../../assets/vendor/js/bootstrap.js"></script>
+        <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+        <script src="../../assets/vendor/js/menu.js"></script>
 
         <!-- endbuild -->
 
         <!-- Vendors JS -->
-        <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+        <script src="../../assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
         <!-- Main JS -->
-        <script src="../assets/js/main.js"></script>
+        <script src="../../assets/js/main.js"></script>
 
         <!-- Page JS -->
-        <script src="../assets/js/dashboards-analytics.js"></script>
+        <script src="../../assets/js/dashboards-analytics.js"></script>
 
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     </body>
 </html>
-{{-- </x-app-web-layout> --}}

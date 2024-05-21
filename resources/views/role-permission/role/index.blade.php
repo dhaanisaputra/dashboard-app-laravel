@@ -191,8 +191,8 @@ data-template="vertical-menu-template-free">
                         </a>
                         <ul class="menu-sub">
                           <li class="menu-item">
-                            <a href="ui-accordion.html" class="menu-link">
-                              <div data-i18n="Accordion">Pages</div>
+                            <a href="{{ route('get.category')}}" class="menu-link">
+                              <div data-i18n="Accordion">Category</div>
                             </a>
                           </li>
                           <li class="menu-item">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OperatorPageController;
@@ -41,10 +42,15 @@ Route::group(['middleware' => ['admin']], function () {
 
     Route::resource('users', UserController::class);
     Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
+
+    // category route
+    Route::get('/admin/category', [CategoryController::class, 'index'])->name('get.category');
+    Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('create.category');
+    Route::post('/admin/category', [CategoryController::class, 'store'])->name('post.category');
 });
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+Route::post('/register', [AuthController::class, 'registerPost'])->name('register.post');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loginPost']);
 
