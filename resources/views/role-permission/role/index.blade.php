@@ -196,7 +196,7 @@ data-template="vertical-menu-template-free">
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="ui-alerts.html" class="menu-link">
+                            <a href="{{ route('get.article')}}" class="menu-link">
                               <div data-i18n="Alerts">Post Article</div>
                             </a>
                           </li>

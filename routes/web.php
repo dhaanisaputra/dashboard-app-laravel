@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPageController;
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -48,13 +49,17 @@ Route::group(['middleware' => ['admin']], function () {
         Route::get('/admin/category', 'index')->name('get.category');
         Route::get('/admin/category/create', 'create')->name('create.category');
         Route::post('/admin/category', 'store')->name('post.category');
-        Route::get('/admin/category/{category}/edit', 'edit')->name('put.category');
+        Route::get('/admin/category/{category}/edit', 'edit')->name('det.category');
+        Route::put('/admin/category/{category}', 'update');
     });
     // category route
     // Route::get('/admin/category', [CategoryController::class, 'index'])->name('get.category');
     // Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('create.category');
     // Route::post('/admin/category', [CategoryController::class, 'store'])->name('post.category');
-
+    Route::controller(ArticlesController::class)->group(function () {
+        Route::get('/admin/article', 'index')->name('get.article');
+        Route::get('/admin/article/create', 'create')->name('create.article');
+    });
 });
 
 Route::get('/register', [AuthController::class, 'register'])->name('register');

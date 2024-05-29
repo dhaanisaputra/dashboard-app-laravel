@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redis;
 use App\Http\Requests\CategoryFormRequest;
 
@@ -53,5 +54,35 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return view('admin.category.edit', compact('category'));
+    }
+
+    public function update(CategoryFormRequest $request, $category)
+    {
+        $validatedData = $request->validated();
+        $category = Category::findOrFail($category);
+
+        $category->name = $validatedData['name'];
+        $category->slug = Str::slug($validatedData['slug']);
+        $category->description = $validatedData['description'];
+        if ($request->hasFile('image')) {
+            $path = 'upload/category/' . $category->image;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+
+            $file->move('upload/category/', $filename);
+            $category->image = $filename;
+        }
+        $category->meta_title = $validatedData['meta_title'];
+        $category->meta_keyword = $validatedData['meta_keyword'];
+        $category->meta_description = $validatedData['meta_description'];
+        $category->status = $request->status == "0" ? '0' : '1';
+        // $category->status = $request->status == true ? '1' : '0';
+        $category->update();
+
+        return redirect()->route('get.category')->with('message', 'Category Updated Successfully');
     }
 }

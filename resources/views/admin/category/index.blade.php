@@ -41,6 +41,8 @@
         <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
         <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
         <script src="../assets/js/config.js"></script>
+
+        @livewireStyles
     </head>
     <body>
         <div class="layout-wrapper layout-content-navbar">
@@ -197,7 +199,7 @@
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="ui-alerts.html" class="menu-link">
+                            <a href="{{ route('get.article')}}" class="menu-link">
                               <div data-i18n="Alerts">Post Article</div>
                             </a>
                           </li>
@@ -349,5 +351,7 @@
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+        @livewireScripts
+        @stack('script')
     </body>
 </html>

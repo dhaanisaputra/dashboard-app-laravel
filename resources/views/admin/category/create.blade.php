@@ -41,6 +41,7 @@
         <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
         <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
         <script src="../../assets/js/config.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
     </head>
     <body>
         <div class="layout-wrapper layout-content-navbar">
@@ -197,7 +198,7 @@
                             </a>
                           </li>
                           <li class="menu-item">
-                            <a href="ui-alerts.html" class="menu-link">
+                            <a href="{{ route('get.article')}}" class="menu-link">
                               <div data-i18n="Alerts">Post Article</div>
                             </a>
                           </li>
@@ -326,11 +327,13 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label>Description</label>
-                                                    <textarea name="description" class="form-control" rows="3"></textarea>
+                                                    <textarea name="description" class="ckeditor form-control" id="description" rows="3"></textarea>
+                                                    @error('description') <small class="text-danger">{{$message}}</small> @enderror
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label>Image</label>
                                                     <input type="file" name="image" class="form-control"/>
+                                                    @error('image') <small class="text-danger">{{$message}}</small> @enderror
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label>Status</label><br/>
@@ -340,6 +343,7 @@
                                                         <option value="0">Active</option>
                                                         <option value="1">Inactive</option>
                                                     </select>
+                                                    @error('status') <small class="text-danger">{{$message}}</small> @enderror
                                                 </div>
 
                                                 <div class="col-md-12 mt-5">
@@ -348,14 +352,17 @@
                                                 <div class="col-md-12 mb-3">
                                                     <label>Meta Title</label>
                                                     <input type="text" name="meta_title" class="form-control" />
+                                                    @error('meta_title') <small class="text-danger">{{$message}}</small> @enderror
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label>Meta Keyword</label>
                                                     <textarea name="meta_keyword" class="form-control" rows="3"></textarea>
+                                                    @error('meta_keyword') <small class="text-danger">{{$message}}</small> @enderror
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <label>Meta Description</label>
                                                     <textarea name="meta_description" class="form-control" rows="3"></textarea>
+                                                    @error('meta_description') <small class="text-danger">{{$message}}</small> @enderror
                                                 </div>
                                                 <div class="col-md-12 mb-3">
                                                     <button type="submit" class="btn btn-primary float-end">Save</button>
@@ -369,6 +376,13 @@
                     </div>
                 </div>
             </div>
+            <script>
+                ClassicEditor
+                    .create(document.querySelector('#description'))
+                    .catch(error => {
+                        console.error(error);
+                    });
+            </script>
         </div>
 
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
