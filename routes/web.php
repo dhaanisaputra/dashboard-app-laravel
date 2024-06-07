@@ -59,6 +59,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::controller(ArticlesController::class)->group(function () {
         Route::get('/admin/article', 'index')->name('get.article');
         Route::get('/admin/article/create', 'create')->name('create.article');
+        Route::post('/admin/article', 'store')->name('post.article');
+        Route::get('/admin/article/{article}/edit', 'edit')->name('det.article');
+        Route::put('/admin/article/{article}', 'update');
     });
 });
 
@@ -79,6 +82,7 @@ Route::get('/admin/home', [DashboardController::class, 'index'])->middleware('ad
 
 // operator route list
 Route::get('/operator/home', [OperatorPageController::class, 'index'])->middleware('operator')->name('operator.home');
+Route::get('/blog-ykfingerboard', [OperatorPageController::class, 'index']);
 
 //admin list page
 Route::get('/admin/admin-list', [AdminPageController::class, 'adminList'])->name('admin.adminlist');

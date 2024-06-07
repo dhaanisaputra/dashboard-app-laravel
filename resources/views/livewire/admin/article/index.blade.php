@@ -2,14 +2,14 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <div>
             <!-- Modal -->
-            {{-- <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Category Delete</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Article Delete</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form wire:submit.prevent="destroyCategory">
+                        <form wire:submit.prevent="destroyArticle">
                             <div class="modal-body">
                                 <h6>Are you sure to delete data?</h6>
                             </div>
@@ -20,7 +20,7 @@
                         </form>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
             <div class="row">
                 {{-- @if (session('message'))
@@ -34,33 +34,35 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        List
-                        {{-- <table class="table table-bordered table-striped">
+                        {{-- List --}}
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Id</th>
                                     <th>Name</th>
+                                    <th>Category</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <body>
-                                @foreach ($categories as $category)
+                                @foreach ($articles as $article)
                                     <tr>
-                                        <td>{{ $category->id }}</td>
-                                        <td>{{ $category->name }}</td>
-                                        <td>{{ $category->status == '1' ? 'Inactive':'Active' }}</td>
+                                        <td>{{ $article->id }}</td>
+                                        <td>{{ $article->name }}</td>
+                                        <td>{{ $article->category }}</td>
+                                        <td>{{ $article->status == '1' ? 'Inactive':'Active' }}</td>
                                         <td>
-                                            <a href="{{ url('admin/category/'.$category->id.'/edit')}}" class="btn btn-success">Edit</a>
-                                            <a href="#" wire:click="deleteCategory({{$category->id}})" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('admin/article/'.$article->id.'/edit')}}" class="btn btn-success">Edit</a>
+                                            <a href="#" wire:click="deleteArticle({{$article->id}})" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </body>
                         </table>
                         <div>
-                            {{ $categories->links() }}
-                        </div> --}}
+                            {{ $articles->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
