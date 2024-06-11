@@ -84,5 +84,8 @@ Route::get('/admin/home', [DashboardController::class, 'index'])->middleware('ad
 Route::get('/operator/home', [OperatorPageController::class, 'index'])->middleware('operator')->name('operator.home');
 Route::get('/blog-ykfingerboard', [OperatorPageController::class, 'index']);
 
+Route::get('/blog', function () {
+    return view('front.pages.example');
+});
 //admin list page
 Route::get('/admin/admin-list', [AdminPageController::class, 'adminList'])->name('admin.adminlist');

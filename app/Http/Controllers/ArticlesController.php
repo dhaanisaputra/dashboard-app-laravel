@@ -18,7 +18,8 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        $category = Category::pluck('name', 'name')->all();
+        // $category = Category::pluck('name', 'name')->all();
+        $category = Category::where('status', 0)->pluck('name', 'name')->all();
         return view('admin.article.create', [
             'category' => $category
         ]);
